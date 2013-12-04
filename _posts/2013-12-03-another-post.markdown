@@ -4,7 +4,8 @@ title:  "Another post"
 date:   2013-12-03 19:43:09
 categories: jekyll update
 ---
-是否支持中文
+鏄惁鏀寔涓枃鍝︼紝mygod
+
 
 {% highlight ruby %}
 def print_hi(name)
