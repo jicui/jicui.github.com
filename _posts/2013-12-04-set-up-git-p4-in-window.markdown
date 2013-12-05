@@ -5,7 +5,7 @@ date:   2013-12-04 19:43:09
 categories: git
 ---
 
-Recently ,our company is thinking of swithing the SCM tool and leverage GIT,why?
+  Recently ,our company is thinking of swithing the SCM tool and leverage GIT,why?
 as git is hot ,distributed, easy to recover and proficient to branch and merge.
 But the challenge is that ,we can not quicky switch to that as for CI(continous integration) ,rely on
 the P4(our current SCM)
@@ -62,4 +62,39 @@ After that ,use below to login into P4
 {% highlight ruby %}
 p4 login
 {% endhighlight %}
+It success ,it promopts to you for password input.
+
+Untill then ,you are good to go for have your first git-p4 experiment.
+>Step1:clone P4 reposiotry to Git directory
+git-p4.py clone //{your peforce path} .For example if you want to clone your branch which on P4 is under path //depot/project/foo,then this is the path you need to
+put in the {your perforce path}.
+
+>Step2:modify any files under your git and commit to local repository ,for example as below
+{% highlight ruby %}
+change some file
+git add .
+git commit -a 
+git-p4.py rebase //recommand to do so
+git-py.py submit
+{% endhighlight %}
+
+Basically p4 will open an system default editor to view the change list and change summary,thus git-p4 will try to open you system default editor
+if you open your git by MinGW or CygWin ,it will open vi as your system default editor ,to switch to another editor your prefer ,please run below.
+
+{% highlight ruby %}
+git config set core.editor="vim"
+{% endhighlight %}
+
+add vim to you system path
+
+{% highlight ruby %}
+echo $PATH
+
+{% endhighlight %}
+
+Till then, you are successfully set up the git-p4 env and in case you want to get more help on that go to [link](http://git-scm.com/docs/git-p4)
+#Architecture overview   
+
+<img src="/assets/git-p4.jpg" height="200px" width="300px" alt="AO"/>
+
 
