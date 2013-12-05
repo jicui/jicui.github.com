@@ -3,6 +3,7 @@ layout: post
 title:  "Another post"
 date:   2013-12-03 19:43:09
 categories: jekyll update
+tags: "arc"
 ---
 是否支持中文哦，mygod
 

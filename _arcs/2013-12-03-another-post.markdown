@@ -1,15 +1,11 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2013-12-02 19:43:09
+title:  "Another post"
+date:   2013-12-03 19:43:09
 categories: jekyll update
-tags: "arc"
 ---
+是否支持中文哦，mygod
 
-You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
-To add new posts, simply add a file in the `_posts` directory that follows the convention: YYYY-MM-DD-name-of-post.ext.
-
-Jekyll also offers powerful support for code snippets:
 
 {% highlight ruby %}
 def print_hi(name)
