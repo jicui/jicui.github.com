@@ -2,6 +2,7 @@
 layout: post
 title: "set up git-p4 in windows"
 date:   2013-12-04 19:43:09
+comments : true
 categories: git
 ---
 
