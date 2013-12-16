@@ -1,0 +1,52 @@
+---
+layout : post
+title : "set up personal blog on github"
+date : 2013-12-12
+comments : true
+categories:git
+---
+
+很多人都在使用github来发布他的blog，我也建议这样，首先 他是免费的，而且不限制访问量，在其次，你对site的content拥有完全的管理权限，这篇博客将给大家介绍一下如何去
+安装和管理自己在github的blog。
+
+
+##安装条件##
+我假设之前，我们已经有了git安装在本地了，不然的话就太假了。。
+我们需要安装 最新的ruby ,配置相应的系统路径，最后运行如下
+
+{% highlight ruby %}
+ruby --version
+ruby 2.0.0p247
+{% endhighlight %}
+
+其次安装jekyll。
+jekyll 是一个个人博客站点自动生成框架，比如你可以选择自己喜欢的模板，但是一定要按照jekyll规定的格式去做。
+[jekyll](http://jekyllrb.com/) 的站点首页的介绍可以看出jekyll 的作用 "Transform your plain text into static websites and blogs".
+
+安装jekyll其实很简单
+{% highlight ruby %}
+~ $ gem install jekyll
+~ $ jekyll new my-awesome-site
+~ $ cd my-awesome-site
+~/my-awesome-site $ jekyll serve 
+{% endhighlight %}
+
+上面的代码其实是jekyll的一个demo，新增一个个人站点名字叫“my-awesome-site”，然后在这个目录下面启动这个site
+如果一切正常的话你会在 localhost:4000下面看到你方才建立的站点。
+当你配置好了jekyll以后我们要做的就是把他发布到github上面，让他成为你的个人站点。
+
+##新增 github repository##
+首先，新增一个repository名字叫
+<sitename>.github.com ,github 会默认吧这个repository格式下面的代码发布成 静态站点，而且github支持 jekyll，所以我们要做的就是把我们方才生成的站点“my-awesome-site”
+发布到github上面，让github来托管这个站点，同时发布者又具有管理这个站点的权限。
+
+至于如何将“my-awesome-site” 发布到github上面 ，就运行如下命令就可以了
+{% highlight ruby %}
+~ $ git init
+~ $ git add .
+~ $ git commit -m 'init site'.
+~ $ git remote add <you github site url>
+~ $ git push origin master
+{% endhighlight %}
+
+等个10分钟，你的site就上线了，当然如果你想绑定你自己的域名的话,需要修改一个CNAME的文件，github会自动帮你做域名绑定。
