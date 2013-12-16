@@ -37,7 +37,7 @@ jekyll 是一个个人博客站点自动生成框架，比如你可以选择自�
 
 ##新增 github repository##
 首先，新增一个repository名字叫
-<sitename>.github.com ,github 会默认吧这个repository格式下面的代码发布成 静态站点，而且github支持 jekyll，所以我们要做的就是把我们方才生成的站点“my-awesome-site”
+my-awesome-site.github.com ,github 会默认吧这个repository格式下面的代码发布成 静态站点，而且github支持 jekyll，所以我们要做的就是把我们方才生成的站点“my-awesome-site”
 发布到github上面，让github来托管这个站点，同时发布者又具有管理这个站点的权限。
 
 至于如何将“my-awesome-site” 发布到github上面 ，就运行如下命令就可以了
