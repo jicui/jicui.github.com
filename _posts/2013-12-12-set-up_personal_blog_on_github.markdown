@@ -3,7 +3,7 @@ layout : post
 title : "set up personal blog on github"
 date : 2013-12-12
 comments : true
-categories:git
+categories : git
 ---
 
 很多人都在使用github来发布他的blog，我也建议这样，首先 他是免费的，而且不限制访问量，在其次，你对site的content拥有完全的管理权限，这篇博客将给大家介绍一下如何去
@@ -11,7 +11,7 @@ categories:git
 
 
 ##安装条件##
-我假设之前，我们已经有了git安装在本地了，不然的话就太假了。。
+我假设之前，我们已经有了git安装在本地了，不然的话就太假了.
 我们需要安装 最新的ruby ,配置相应的系统路径，最后运行如下
 
 {% highlight ruby %}
@@ -50,3 +50,9 @@ jekyll 是一个个人博客站点自动生成框架，比如你可以选择自�
 {% endhighlight %}
 
 等个10分钟，你的site就上线了，当然如果你想绑定你自己的域名的话,需要修改一个CNAME的文件，github会自动帮你做域名绑定。
+值得注意的是，在window下面运行jekyll会遇到例如字符编码的问题　，例如“invalid byte sequence in GBK”。这个时候我们可以在site的根目录下面的_config.yml里面新增
+{% highlight ruby %}
+encoding: UTF-8
+{% endhighlight %}
+一行让jekyll 用UTF-8的格式来出路字符集来解决。
+
