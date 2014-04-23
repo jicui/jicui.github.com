@@ -1,11 +1,11 @@
 ---
 layout : post
-title : "为什么我们不许要PM"
+title : "为什么我们不需要PM"
 date : 2014-03-11
 comments : true
 categories : git
 ---
-##为什么我们不许要PM#
+##为什么我们不需要PM#
 PM 是product manager 的简称，很多公司都有这个role，不管是外企还是国内的it企业，特别是互联网公司，但是，我看得到pm，特别是外企，这个职位有他的局限性。
 
 
