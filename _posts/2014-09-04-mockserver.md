@@ -53,7 +53,7 @@ any mock specs as well
 
 in above two cases ,a UI tooling may sufficient for them to go ahead. like below:
 
-```
+{% highlight javascript %}
 {
   "request" :
     {
@@ -71,7 +71,7 @@ in above two cases ,a UI tooling may sufficient for them to go ahead. like below
     }
 }
 
-```
+{% endhighlight %}
 
 if in bound request has cookies["login"] equals to true and uri is "/foo" ,then return text "success".
 
@@ -84,11 +84,11 @@ retry and so on ,to ensure their code is robust enough to cover all aspects in d
 
 in above case ,a native language friends dsl may be a good choice for way to go,like below:
 
-```
+{% highlight java %}
 whenRequest().matchUri("/foo").and().matchCookies("login",true).
 thenReturn().text("success");
 
-```
+{% endhighlight %}
 
 Moci system leverage the same DLS as moco framework does ,so all the DLS details please go to 
 
