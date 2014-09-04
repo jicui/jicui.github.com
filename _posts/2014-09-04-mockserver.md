@@ -52,6 +52,7 @@ For performance tests and manully function test,it is all handful work ,no need 
 any mock specs as well
 
 in above two cases ,a UI tooling may sufficient for them to go ahead. like below:
+
 ```
 {
   "request" :
@@ -71,6 +72,7 @@ in above two cases ,a UI tooling may sufficient for them to go ahead. like below
 }
 
 ```
+
 if in bound request has cookies["login"] equals to true and uri is "/foo" ,then return text "success".
 
 
@@ -81,6 +83,7 @@ component's,thus they need to set up various specs to cover positive ,negative,f
 retry and so on ,to ensure their code is robust enough to cover all aspects in distributing environment.
 
 in above case ,a native language friends dsl may be a good choice for way to go,like below:
+
 ```
 whenRequest().matchUri("/foo").and().matchCookies("login",true).
 thenReturn().text("success");
