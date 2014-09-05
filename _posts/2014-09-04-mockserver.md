@@ -54,6 +54,7 @@ any mock specs as well
 in above two cases ,a UI tooling may sufficient for them to go ahead. like below:
 
 {% highlight javascript %}
+```
 {
   "request" :
     {
@@ -70,7 +71,7 @@ in above two cases ,a UI tooling may sufficient for them to go ahead. like below
       }
     }
 }
-
+```
 {% endhighlight %}
 
 if in bound request has cookies["login"] equals to true and uri is "/foo" ,then return text "success".
@@ -82,14 +83,35 @@ control of their internal code logic.The reason is they are testing their own co
 component's,thus they need to set up various specs to cover positive ,negative,failover,
 retry and so on ,to ensure their code is robust enough to cover all aspects in distributing environment.
 
-in above case ,a native language friends dsl may be a good choice for way to go,like below:
+in above case ,a native language friendly dsl may be a good choice to go,like below:
 
 {% highlight java %}
+```
 whenRequest().matchUri("/foo").and().matchCookies("login",true).
 thenReturn().text("success");
-
+```
 {% endhighlight %}
 
-Moci system leverage the same DLS as moco framework does ,so all the DLS details please go to 
+Some thoughs
+----
+Mock server can only mock the response instead behavior ,for instance if you want to 
+test the subsequent flow to see if the post request has successly add the record into db ,this can 
+not be handled by mock server,should we add this into mock server's scope? this is an open topic to 
+discuss
+
+But by setting up the mock server can help develop to skip the steps to setting preparing data to
+return expected value and very easy to create a exception response to simulate an error case.
+
+Mock specs is very much bounded to test case it self ,how to manage those mock specs 
+should we open a shared platform or private platform? what is the lifecycle to that?
+
+Conclusion
+----
+Mock server becomes more and more important in various company ,ebay,alibaba,baidu and google
+as e-commerce site has various integration tasks,mock server solve the problem to test the 
+3rd party api as well as internal api,and easily create various senario to cover the test case
+But mean while we still see some shortcuts that mock server can not bring ,such as 
+mock behavior,will this be another opptunity?
+
 
 
