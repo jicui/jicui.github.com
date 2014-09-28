@@ -33,7 +33,6 @@ Introduction
 还有一种可以应用与dls的是json 格式，例如
 
 {% highlight javascript %}
-```
 {
   "request" :
     {
@@ -50,7 +49,6 @@ Introduction
       }
     }
 }
-```
 {% endhighlight %}
 
 这个一个很简单的json格式，同时他也完全满足一个dsl所需要的特性，简单，易懂，有语法和层次。
@@ -68,7 +66,6 @@ getByKeyword：就是简单的返回当前处理node 所注册的名字。
 拥有了这样一个简单的接口，我们就满足了实现一个基于json格式的简单的mock 编译器的功能。同时还具备关键词的可扩展功能。例如，如果我们以后要扩展DSL，在response里面新增"time_delay" ,这个属性
 这样我只要修改ResponseCompiler的"locateChildNode"方法，增加一行
 {% highlight java %}
-```
  if(keyword.equals("time_delay")){
        return new TimeDelayCompiler();
  }
@@ -78,7 +75,7 @@ getByKeyword：就是简单的返回当前处理node 所注册的名字。
 
 DSL引擎
 ----
-<img src="/assets/mock_design.jpg" height="200px" width="300px" alt="AO"/>
+<img src="/assets/mock_design.jpg" height="400px" width="600px" alt="AO"/>
 
 
 
