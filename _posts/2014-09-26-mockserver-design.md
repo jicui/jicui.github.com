@@ -15,8 +15,7 @@ Background
 
 1 编译器
 2 DSL引擎
-2 请求处理器
-3 响应绑定
+2 请求处理器和响应绑定
 
 以及外围的诸如
 
@@ -24,7 +23,7 @@ Background
 2.mock 规格持久
 3.搜索策略等 
 
-本文将会对各个方面做一个概要性的介绍，从而达到对我们设计的happymock的一个概括和抽象的目地
+本文将会对核心的几个模块做一个概要性的介绍，从而达到对我们设计的happymock的一个概括和抽象的目地
 
 Introduction
 ----
@@ -76,6 +75,22 @@ getByKeyword：就是简单的返回当前处理node 所注册的名字。
 DSL引擎
 ----
 <img src="/assets/mock_design.jpg" height="400px" width="600px" alt="AO"/>
+前段通过Http的Handler解耦业务代码和协议代码，然后MockRequestHandler发送Mock请求给DSL引擎，DSL引擎内部分解成几个模块
+
+持久层：负责读写mock数据库，通过解析mock 请求来查找mock的配置
+
+组装层：将持久层返回的DSL，更具配置的processor和 binder 来组装成java的pojo
+
+编译层：接受编译的请求，根据请求决定是否需要持久
+
+实体层：持久层返回的一个或者多个MociSetting pojo对象，每个MockSetting都拥有一个match方法
+用来判断传入的mock请求是否能满足DSL 在 "request" body 中定义的所有的要求，比如url模式，header字段
+cookie 字段，endity body等
+
+对于大规模应用的场景，如果persit返回多个MociSetting ，如何能做到快速查找，例如根据Content-Type的类型，将MociSetting分类等，这块目前还没有在设计中体现到，可以以后再加上
+
+请求处理器和响应绑定
+----
 
 
 
