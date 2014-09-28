@@ -75,6 +75,8 @@ getByKeyword：就是简单的返回当前处理node 所注册的名字。
 DSL引擎
 ----
 <img src="/assets/mock_design.jpg" height="400px" width="600px" alt="AO"/>
+
+
 前段通过Http的Handler解耦业务代码和协议代码，然后MockRequestHandler发送Mock请求给DSL引擎，DSL引擎内部分解成几个模块
 
 持久层：负责读写mock数据库，通过解析mock 请求来查找mock的配置
