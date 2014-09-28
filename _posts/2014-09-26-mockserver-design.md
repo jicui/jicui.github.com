@@ -14,6 +14,7 @@ Background
 设计一个mockserver 的后台引擎需要考虑到几个核心模块
 
 1 编译器
+2 DSL引擎
 2 请求处理器
 3 响应绑定
 
@@ -56,12 +57,28 @@ Introduction
 
 编译器的设计思路
 ----
+dsl的编译器需要满足层次性，关键词判断和子句查找几个特点，比如mock spec 的语法 如上所示，"request",和 "response"是根节点下的两个子节点，而这两个子节点都必须同时存在，才是一个合法的mock
+再例如，"body"里面我们可以嵌入 "json","xml"或者"text"，而这三个节点只要出现一个就满足一个正确的 "body"节点的要求，但是如果一个都不出现就不能是一个合法的 "body"节点
+针对这样的需求我们可以设计Compiler接口
+<img src="/assets/compiler.jpg" height="200px" width="300px" alt="compiler"/>
+locateChildNode：可以根据子node的名字来定位，这样的话可以简单的识别出，无效的关键词，比如 用户的误输入把 json 输入成了 jason这样jason这个关键词是找不到对应的childNode的编译器的
+compiler:是编译系统的主题，他负责解析传递进入方法体的dsl的规格是否满足以定的条件，比如是否是一个合法的正则又或者是否包含一定数量的字节点，同时负责梳理这些子节点之间的依赖关系
+getByKeyword：就是简单的返回当前处理node 所注册的名字。
 
+拥有了这样一个简单的接口，我们就满足了实现一个基于json格式的简单的mock 编译器的功能。同时还具备关键词的可扩展功能。例如，如果我们以后要扩展DSL，在response里面新增"time_delay" ,这个属性
+这样我只要修改ResponseCompiler的"locateChildNode"方法，增加一行
+{% highlight java %}
+```
+ if(keyword.equals("time_delay")){
+       return new TimeDelayCompiler();
+ }
+{% endhighlight %}
 
+就可以方便地实现易于扩展的目标了
 
-Conclusion
+DSL引擎
 ----
-
+<img src="/assets/mock_design.jpg" height="200px" width="300px" alt="AO"/>
 
 
 
