@@ -93,6 +93,15 @@ cookie 字段，endity body等
 
 请求处理器和响应绑定
 ----
+请求处理器：它的作用在于当有mock的请求进入DSL引擎内部的时候，请求处理器会依次分析进入的每个request，并且根据定义的匹配原则来匹配request是否满足所有的
+预定义的match规则，如果满足则返回相关对应的response配置。但是这里需要考虑一个问题，就是如果一个request同时满足大于一个的MociSetting配置的情况下，DSL按照什么原则来返回mock response.解决这个问题要看需求，不过大致有以下几个思路：
 
+1.返回400 ，让用户调整mock 的配置，或者发送的http请求。
+
+2.返回第一个匹配的请求。
+
+3.按照最优的匹配原则返回。
+
+响应绑定：它的作用在于当请求处理器找到满足需求的mock response的时候，按照预先定义的mock response 规则来绑定相应的http code，http header，cookie等。
 
 
