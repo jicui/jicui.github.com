@@ -104,4 +104,6 @@ cookie 字段，endity body等
 
 响应绑定：它的作用在于当请求处理器找到满足需求的mock response的时候，按照预先定义的mock response 规则来绑定相应的http code，http header，cookie等。
 
-
+总结
+---
+这篇文章介绍了要设计一个mock DSL引擎需要考虑的几个方面，包括DSL原型，编译器，处理器，绑定器等。
